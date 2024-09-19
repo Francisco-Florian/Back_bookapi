@@ -5,7 +5,7 @@ const authMiddleware = require('../middleware/auth');
 
 router.get('/', bookController.getAllBooks);
 router.post('/', authMiddleware, bookController.createBook);
-router.patch('/', bookController.updateBook);
-router.delete('/', bookController.deleteBook);
+router.patch('/:id', bookController.updateBook);
+router.delete('/:id', bookController.deleteBook);
 
 module.exports = router;

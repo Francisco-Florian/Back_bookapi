@@ -4,8 +4,8 @@ const authorController = require('../controllers/authorController');
 
 router.get('/', authorController.getAllAuthors);
 router.post('/', authorController.createAuthor);
-router.patch('/', authorController.updateAuthor);
-router.delete('/', authorController.deleteAuthor);
+router.patch('/:id', authorController.updateAuthor);
+router.delete('/:id', authorController.deleteAuthor);
 router.get('/:id', authorController.getAuthorById);
 
 module.exports = router;

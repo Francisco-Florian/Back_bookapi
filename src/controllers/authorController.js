@@ -35,19 +35,21 @@ exports.updateAuthor = async (req, res, next) => {
 }
 
 exports.deleteAuthor = async (req, res, next) => {
-    try{
+    try {
         const authorId = req.params.id;
-        const author = await Book.findByPk(authorId);
+        const author = await Author.findByPk(authorId);
 
         if (!author) {
-            res.status(404).json({ message: "Autheur non trouvé" });
+            return res.status(404).json({ message: "Auteur non trouvé" });
         }
+
         await author.destroy();
-        res.status(200).json({ message: "Autheur supprimé avec succès" });
-    } catch (err){
+        res.status(200).json({ message: "Auteur supprimé avec succès" });
+    } catch (err) {
         next(err);
     }
-}
+};
+
 
 
 exports.getAuthorById = async (req, res, next) => {
